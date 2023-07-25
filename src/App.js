@@ -6,8 +6,9 @@ import useLocalStorageState from "use-local-storage-state";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
-    defaultValue: "",
+    defaultValue: [],
   });
+
   function handleAddActivity(newActivity) {
     newActivity = {
       id: uid(),
@@ -16,9 +17,10 @@ function App() {
     };
     setActivities([newActivity, ...activities]);
   }
+
   return (
     <div className="App">
-      <ActivityList />
+      <ActivityList activities={activities} />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );

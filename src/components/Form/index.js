@@ -6,11 +6,14 @@ export default function Form({ onAddActivity }) {
     event.preventDefault();
     const name = event.target.name.value;
     const isForGoodWeather = event.target.isForGoodWeather.checked;
-    console.log(name, isForGoodWeather);
+
     onAddActivity({
       name: name,
       isForGoodWeather: isForGoodWeather,
     });
+
+    event.target.reset();
+    event.target.name.focus();
   }
 
   return (

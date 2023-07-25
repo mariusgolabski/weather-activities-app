@@ -1,11 +1,10 @@
-import ActivityItem from "../ActivityItem";
-
-
-export default function ActivityList() {
+export default function ActivityList({ activities }) {
   return (
     <section>
       <ul>
-        <ActivityItem/>
+        {activities.map((activity) => (
+          <li key={activity.id}>{activity.name}</li>
+        ))}
       </ul>
     </section>
   );
